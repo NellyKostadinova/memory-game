@@ -1,22 +1,94 @@
-.App {
+.App-header {
+  text-align: center;
+  background-color: #282c34;
+  color: white;
+  padding: 20px 50px;
+}
+
+.App-header h1 {
+  margin-bottom: 15px;
+}
+
+.App-header p {
+  margin: 0px 0px 40px;
+}
+
+.App-header hr {
+  opacity: 0.4;
+}
+
+.LevelSelect {
+  padding-top: 10px;
+}
+
+.LevelSelect select {
+  padding: 3px 8px;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.ImagesList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 50px;
+}
+
+.ImageCard {
+  margin-bottom: 40px;
+}
+
+.ImageCard img {
+  width: 310px;
+  height: 250px;
+  object-fit: cover;
+  transition: all 300ms;
+}
+
+.ImageCard img:hover {
+  box-shadow: 2px 2px 11px 3px rgba(0, 0, 0, 0.22);
+  transform: scale(1.1);
+}
+
+.ScoreDisplay {
+  padding: 10px 50px;
+  text-align: right;
+  background-color: #00798c;
+  color: white;
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.GameOverDisplay {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+.GameOverDisplay h2 {
+  font-size: 100px;
+  margin-bottom: 50px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.GameOverDisplay button {
+  font-size: 30px;
+  background-color: #00798c;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 30px;
   color: white;
+  cursor: pointer;
+  transition: all 300ms;
 }
 
-.App-link {
-  color: #09d3ac;
+.GameOverDisplay button:hover {
+  box-shadow: 2px 2px 11px 3px rgba(0, 0, 0, 0.22);
+  transform: scale(1.1);
+}
+
+.GameOverDisplay.won {
+  color: #8ed081;
+}
+
+.GameOverDisplay.lost {
+  color: #d1495b;
 }
