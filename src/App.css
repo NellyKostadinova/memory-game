@@ -39,9 +39,6 @@
 }
 
 .ImageCard img {
-  width: 310px;
-  height: 250px;
-  object-fit: cover;
   transition: all 300ms;
 }
 

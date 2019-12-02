@@ -1,4 +1,5 @@
 import React from 'react';
+import Images from './components/Images.js';
 import Utils from './components/Utils';
 import Game from './components/Game';
 import './App.css';
@@ -11,19 +12,9 @@ class App extends React.Component {
     this.state = {
       gameId: 1,
       gameLevel: 5,
-      initArray: [],
-      arrayToPlay: []
+      initArray: Images.initArray,
+      arrayToPlay: Images.arrayToPlay
     };
-  }
-
-  componentDidMount() {
-    fetch('http://www.splashbase.co/api/v1/images/latest')
-      .then((response) => response.json())
-      .then((fetchedImgs) => {
-        this.setState({ initArray: fetchedImgs.images }, () => {
-          this.createArrayToPlay(this.state.initArray);
-        });
-      });
   }
 
   updateGameLevel = (level) => {
@@ -34,7 +25,14 @@ class App extends React.Component {
   };
 
   resetGame = () => {
-    this.setState({ gameId: this.state.gameId + 1 });
+    this.setState({ initArray: Utils.shuffle(this.state.initArray) }, () => {
+      this.setState(
+        { arrayToPlay: Utils.shorten(this.state.initArray, this.state.gameLevel) },
+        () => {
+          this.setState({ gameId: this.state.gameId + 1 });
+        }
+      );
+    });
   };
 
   createArrayToPlay = (arr) => {
